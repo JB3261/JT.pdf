@@ -26,8 +26,9 @@ git pull
 npm install
 ```
 
-## Features (V1 — Core Studio)
+## Features
 
+### Core Studio (V1)
 - **View & Read**: High-DPI PDF viewer (`pdfjs-dist` with bundled local worker), zoom controls, Fit Width, quick rotate, keyboard navigation.
 - **Organize Pages**: Visual thumbnail grid with drag-and-drop reorder, batch selection (All / Odd / Even), rotate (`-90°` / `+90°`), duplicate, delete, insert blank pages, and extract selected pages.
 - **Merge PDFs & Images**: Combine multiple PDFs and PNG/JPG/WebP images in any order, open directly in the studio or download immediately.
@@ -38,8 +39,12 @@ npm install
 - **Properties**: Inspect and edit PDF Title, Author, Subject, Keywords, and Creator metadata.
 - **Undo / Redo & Themes**: Full undo/redo history (`Ctrl+Z` / `Ctrl+Y`), export (`Ctrl+S`), and system-aware Light/Dark mode.
 
+### Annotate, Sign & Forms (Phase 2)
+- **Annotate & Sign**: Interactive page overlay with Highlight, Freehand Pen, Text Box, Sticky Notes, Boxes, Arrows, Stamps (`APPROVED`, `CONFIDENTIAL`, `DRAFT`, `REVIEWED`, `PAID`, `URGENT`), and drag-to-move/resize before burning cleanly into the PDF.
+- **E-Signatures**: Draw on a touch/mouse pad, type with script presets, or upload a signature image — saved locally in the browser for quick reuse.
+- **Fill Forms**: Automatically detects interactive PDF AcroForm fields (text inputs, checkboxes, dropdowns, radio groups) with optional **Flatten Form** to lock values permanently.
+
 ## Planned Roadmap
 
-- **Phase 2 — Annotate & Sign**: Highlight, underline, freehand ink, sticky notes, stamps, e-signatures, interactive AcroForm filling.
 - **Phase 3 — Convert & Create**: Markdown/HTML → PDF, Office document conversions.
 - **Phase 4 — Edit & Security**: Redaction, password encryption/decryption, local browser OCR (Tesseract.js WASM).

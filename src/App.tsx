@@ -11,6 +11,8 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { DropZone } from './components/DropZone';
 import { ViewerPane } from './components/ViewerPane';
+import { AnnotatePane } from './components/AnnotatePane';
+import { FormsPane } from './components/FormsPane';
 import { OrganizePane } from './components/OrganizePane';
 import { MergePane } from './components/MergePane';
 import { SplitPane } from './components/SplitPane';
@@ -227,6 +229,23 @@ export function App() {
           <ViewerPane
             doc={doc}
             onUpdateDocument={updateActiveDocument}
+            onNotify={notify}
+          />
+        );
+      case 'annotate':
+        return (
+          <AnnotatePane
+            doc={doc}
+            onUpdateDocument={updateActiveDocument}
+            onNotify={notify}
+          />
+        );
+      case 'forms':
+        return (
+          <FormsPane
+            doc={doc}
+            onUpdateDocument={updateActiveDocument}
+            onJumpToTool={setActiveTool}
             onNotify={notify}
           />
         );

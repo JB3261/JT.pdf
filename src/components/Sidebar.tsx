@@ -1,10 +1,12 @@
 import {
+  CheckSquare,
   Combine,
   Eye,
   FileImage,
   FileSliders,
   LayoutGrid,
   Minimize2,
+  PenTool,
   Scissors,
   Stamp,
 } from 'lucide-react';
@@ -25,6 +27,8 @@ interface NavEntry {
 
 const CORE_TOOLS: NavEntry[] = [
   { id: 'view', label: 'View & Read', icon: Eye, requiresDoc: true },
+  { id: 'annotate', label: 'Annotate & Sign', icon: PenTool, requiresDoc: true },
+  { id: 'forms', label: 'Fill Forms', icon: CheckSquare, requiresDoc: true },
   { id: 'organize', label: 'Organize Pages', icon: LayoutGrid, requiresDoc: true },
   { id: 'merge', label: 'Merge PDFs', icon: Combine, requiresDoc: false },
   { id: 'split', label: 'Split & Extract', icon: Scissors, requiresDoc: true },
