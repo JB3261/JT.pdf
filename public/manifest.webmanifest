@@ -1,0 +1,16 @@
+{
+  "name": "FolioPDF — Local PDF Studio",
+  "short_name": "FolioPDF",
+  "description": "100% local-first PDF studio. Documents never leave your device.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
