@@ -17,8 +17,12 @@ import { OrganizePane } from './components/OrganizePane';
 import { MergePane } from './components/MergePane';
 import { SplitPane } from './components/SplitPane';
 import { CompressPane } from './components/CompressPane';
+import { CreatePane } from './components/CreatePane';
 import { ConvertPane } from './components/ConvertPane';
 import { EnhancePane } from './components/EnhancePane';
+import { RedactPane } from './components/RedactPane';
+import { SecurityPane } from './components/SecurityPane';
+import { OcrPane } from './components/OcrPane';
 import { MetadataPane } from './components/MetadataPane';
 import { ShortcutsDialog } from './components/ShortcutsDialog';
 import { ToastList } from './components/Toast';
@@ -202,6 +206,16 @@ export function App() {
       );
     }
 
+    if (activeTool === 'create') {
+      return (
+        <CreatePane
+          doc={doc}
+          onOpenCreatedPdf={(bytes, name) => loadNewDocument(bytes, name, 'view')}
+          onNotify={notify}
+        />
+      );
+    }
+
     if (activeTool === 'convert') {
       return (
         <ConvertPane
@@ -278,6 +292,30 @@ export function App() {
       case 'enhance':
         return (
           <EnhancePane
+            doc={doc}
+            onUpdateDocument={updateActiveDocument}
+            onNotify={notify}
+          />
+        );
+      case 'redact':
+        return (
+          <RedactPane
+            doc={doc}
+            onUpdateDocument={updateActiveDocument}
+            onNotify={notify}
+          />
+        );
+      case 'security':
+        return (
+          <SecurityPane
+            doc={doc}
+            onUpdateDocument={updateActiveDocument}
+            onNotify={notify}
+          />
+        );
+      case 'ocr':
+        return (
+          <OcrPane
             doc={doc}
             onUpdateDocument={updateActiveDocument}
             onNotify={notify}

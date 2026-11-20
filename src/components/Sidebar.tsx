@@ -2,11 +2,15 @@ import {
   CheckSquare,
   Combine,
   Eye,
+  EyeOff,
+  FileCode2,
   FileImage,
   FileSliders,
   LayoutGrid,
+  Lock,
   Minimize2,
   PenTool,
+  ScanText,
   Scissors,
   Stamp,
 } from 'lucide-react';
@@ -35,9 +39,16 @@ const CORE_TOOLS: NavEntry[] = [
   { id: 'compress', label: 'Compress PDF', icon: Minimize2, requiresDoc: true },
 ];
 
-const EXTRA_TOOLS: NavEntry[] = [
+const CREATE_CONVERT_TOOLS: NavEntry[] = [
+  { id: 'create', label: 'Create / Word & MD', icon: FileCode2, requiresDoc: false },
   { id: 'convert', label: 'Convert Images', icon: FileImage, requiresDoc: false },
   { id: 'enhance', label: 'Watermark & Numbers', icon: Stamp, requiresDoc: true },
+];
+
+const SECURITY_OCR_TOOLS: NavEntry[] = [
+  { id: 'redact', label: 'Redact Sensitive', icon: EyeOff, requiresDoc: true },
+  { id: 'security', label: 'Protect & Sanitize', icon: Lock, requiresDoc: true },
+  { id: 'ocr', label: 'Local OCR', icon: ScanText, requiresDoc: true },
   { id: 'metadata', label: 'Properties', icon: FileSliders, requiresDoc: true },
 ];
 
@@ -71,8 +82,11 @@ export function Sidebar({ activeTool, hasDocument, onSelectTool }: SidebarProps)
         <div className="sidebar-section-label">Core Studio</div>
         {renderList(CORE_TOOLS)}
 
-        <div className="sidebar-section-label">Create &amp; Enhance</div>
-        {renderList(EXTRA_TOOLS)}
+        <div className="sidebar-section-label">Create &amp; Convert</div>
+        {renderList(CREATE_CONVERT_TOOLS)}
+
+        <div className="sidebar-section-label">Security &amp; OCR</div>
+        {renderList(SECURITY_OCR_TOOLS)}
       </div>
 
       <div className="sidebar-footer">

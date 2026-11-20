@@ -1,5 +1,5 @@
 import { useState, type DragEvent } from 'react';
-import { Combine, FileImage, FilePlus2, FileUp, ShieldCheck } from 'lucide-react';
+import { Combine, FileCode2, FileImage, FilePlus2, FileUp } from 'lucide-react';
 import type { ToolId } from '../types/pdf';
 
 interface DropZoneProps {
@@ -105,11 +105,15 @@ export function DropZone({
             <span>Start with a fresh A4 page and build from scratch.</span>
           </button>
 
-          <div className="quick-action-card" style={{ cursor: 'default' }}>
-            <ShieldCheck size={20} color="var(--success)" aria-hidden="true" />
-            <strong>100% Client-Side</strong>
-            <span>No servers, no accounts, no document uploads.</span>
-          </div>
+          <button
+            type="button"
+            className="quick-action-card"
+            onClick={() => onJumpToTool('create')}
+          >
+            <FileCode2 size={20} color="var(--brand)" aria-hidden="true" />
+            <strong>Word / MD to PDF</strong>
+            <span>Create vector PDFs from Markdown, Text, or .docx files.</span>
+          </button>
         </div>
       </div>
     </div>

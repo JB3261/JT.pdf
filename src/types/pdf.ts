@@ -6,8 +6,12 @@ export type ToolId =
   | 'merge'
   | 'split'
   | 'compress'
+  | 'create'
   | 'convert'
   | 'enhance'
+  | 'redact'
+  | 'security'
+  | 'ocr'
   | 'metadata';
 
 export interface ActivePdfDocument {
@@ -186,4 +190,30 @@ export interface AcroFormFieldInfo {
   value: string | boolean;
   options?: string[];
   readOnly: boolean;
+}
+
+/* Phase 4: Redaction, Security & OCR */
+
+export interface RedactionBox {
+  id: string;
+  pageIndex: number; // 0-based
+  x: number; // 0..1
+  y: number; // 0..1
+  width: number; // 0..1
+  height: number; // 0..1
+}
+
+export interface PdfProtectOptions {
+  userPassword: string;
+  ownerPassword: string;
+  allowPrinting: boolean;
+  allowCopying: boolean;
+  allowModifying: boolean;
+  allowAnnotating: boolean;
+}
+
+export interface OcrPageResult {
+  pageNumber: number;
+  text: string;
+  confidence: number;
 }

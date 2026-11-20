@@ -44,7 +44,12 @@ npm install
 - **E-Signatures**: Draw on a touch/mouse pad, type with script presets, or upload a signature image — saved locally in the browser for quick reuse.
 - **Fill Forms**: Automatically detects interactive PDF AcroForm fields (text inputs, checkboxes, dropdowns, radio groups) with optional **Flatten Form** to lock values permanently.
 
-## Planned Roadmap
+### Convert & Create (Phase 3)
+- **Create PDF from Markdown / Word / Text**: Write or paste Markdown, or import `.docx` (via `mammoth`), `.md`, or `.txt` files to generate clean vector, selectable-text PDFs with customizable A4/Letter sizing and page numbers.
+- **Export PDF → Word (`.docx`), Markdown (`.md`), or Plain Text (`.txt`)**: Extracts text cleanly per page and generates real OOXML `.docx` files directly in the browser.
 
-- **Phase 3 — Convert & Create**: Markdown/HTML → PDF, Office document conversions.
-- **Phase 4 — Edit & Security**: Redaction, password encryption/decryption, local browser OCR (Tesseract.js WASM).
+### Edit, Redact, Security & Local OCR (Phase 4)
+- **True Permanent Redaction**: Draw redaction boxes over sensitive text or images; redacted pages are rasterized with solid opaque black bars so hidden text cannot be copied or recovered.
+- **Password Protection & Permissions**: 128-bit PDF encryption (`@pdfsmaller/pdf-encrypt-lite`) with Document Open password, Owner password, and granular Print / Copy / Modify / Annotate permission flags.
+- **Sanitize Hidden Metadata**: One-click scrub of Author, Title, Subject, Keywords, Creator, Producer, and timestamps.
+- **100% Local Browser OCR**: WebAssembly OCR (`tesseract.js`) supporting English, Portuguese, Spanish, French, and German — extracts text with confidence scores and optionally embeds an invisible searchable text layer to create a **Searchable PDF**.

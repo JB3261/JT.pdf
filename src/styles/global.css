@@ -1048,6 +1048,32 @@ dialog.app-dialog::backdrop {
   color: #475569;
 }
 
+/* Phase 4: True Redaction */
+.redact-box {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.88);
+  border: 2px solid #ef4444;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 2px;
+}
+
+.redact-box:hover {
+  background: rgba(15, 23, 42, 0.94);
+}
+
+.redact-box-remove {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  background: #ef4444;
+  color: #ffffff;
+}
+
 @media (max-width: 860px) {
   .app-sidebar {
     width: 66px;
