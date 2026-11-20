@@ -1,6 +1,6 @@
 {
-  "name": "FolioPDF — Local PDF Studio",
-  "short_name": "FolioPDF",
+  "name": "JT.pdf — Local PDF Studio",
+  "short_name": "JT.pdf",
   "description": "100% local-first PDF studio. Documents never leave your device.",
   "start_url": "/",
   "display": "standalone",

@@ -93,12 +93,12 @@ export function Header({
           type="button"
           className="brand"
           onClick={onResetHome}
-          title="FolioPDF Home"
+          title="JT.pdf Home"
         >
           <span className="brand-mark" aria-hidden="true">
             <FileText size={16} />
           </span>
-          <span>FolioPDF</span>
+          <span>JT.pdf</span>
         </button>
 
         {doc && (

@@ -22,7 +22,7 @@ export async function createBlankPdf(
   const doc = await PDFDocument.create();
   const dims: [number, number] = size === 'letter' ? [612, 792] : [595.28, 841.89];
   doc.addPage(dims);
-  doc.setCreator('FolioPDF');
+  doc.setCreator('JT.pdf');
   return doc.save({ useObjectStreams: true });
 }
 
@@ -136,7 +136,7 @@ export async function mergeItemsToPdf(items: MergeItem[]): Promise<Uint8Array> {
     throw new Error('Add at least one PDF or image to merge.');
   }
   const out = await PDFDocument.create();
-  out.setCreator('FolioPDF');
+  out.setCreator('JT.pdf');
 
   for (const item of items) {
     if (item.kind === 'pdf') {
@@ -254,7 +254,7 @@ export async function compressPdf(
   onProgress?.(5, 'Loading document...');
   const proxy = await loadPdfProxy(bytes);
   const out = await PDFDocument.create();
-  out.setCreator('FolioPDF Compressor');
+  out.setCreator('JT.pdf Compressor');
 
   try {
     for (let p = 1; p <= proxy.numPages; p++) {
@@ -297,7 +297,7 @@ export async function imagesToPdf(
 ): Promise<Uint8Array> {
   if (files.length === 0) throw new Error('Select at least one image.');
   const out = await PDFDocument.create();
-  out.setCreator('FolioPDF');
+  out.setCreator('JT.pdf');
 
   for (const file of files) {
     const normalized = await normalizeImageToPngOrJpg(file.bytes, file.mimeType);
@@ -462,6 +462,6 @@ export async function writeMetadata(
       .map((s) => s.trim())
       .filter(Boolean)
   );
-  doc.setCreator(metadata.creator || 'FolioPDF');
+  doc.setCreator(metadata.creator || 'JT.pdf');
   return doc.save({ useObjectStreams: true });
 }

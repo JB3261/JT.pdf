@@ -106,7 +106,7 @@ export function ShortcutsDialog({ open, onClose }: ShortcutsDialogProps) {
           <div>
             <strong>Strict Local Processing</strong>
             <div style={{ color: 'var(--text-secondary)', marginTop: '2px' }}>
-              FolioPDF runs completely inside your browser using local PDF engines. No
+              JT.pdf runs completely inside your browser using local PDF engines. No
               files or metadata are ever transmitted over the network.
             </div>
           </div>

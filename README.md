@@ -1,19 +1,19 @@
-# FolioPDF — 100% Local PDF Studio
+# JT.pdf — 100% Local PDF Studio
 
-FolioPDF is a privacy-first, client-side PDF studio built to replace paid PDF tools for teams. Every PDF operation runs completely on your own machine in the browser — documents never leave your device.
+JT.pdf is a privacy-first, client-side PDF studio built to replace paid PDF tools for teams. Every PDF operation runs completely on your own machine in the browser — documents never leave your device.
 
 ## Quick Install & Run (For Colleagues)
 
 **Prerequisite:** [Node.js LTS](https://nodejs.org/) and Git.
 
 ```bash
-git clone https://github.com/JB3261/foliopdf.git
-cd foliopdf
+git clone https://github.com/JB3261/JT.pdf.git
+cd JT.pdf
 npm install
 npm run dev -- --open
 ```
 
-- **Windows one-click launch:** After cloning, double-click **`start.bat`** (it automatically installs dependencies on first run and opens FolioPDF in your browser).
+- **Windows one-click launch:** After cloning, double-click **`start.bat`** (it automatically installs dependencies on first run and opens JT.pdf in your browser).
 - **macOS / Linux:** Run `./start.sh`.
 
 ## Updating Later
@@ -21,7 +21,7 @@ npm run dev -- --open
 Whenever new features (e.g. Annotate & Sign, OCR, Redaction) are added, colleagues just pull the latest version:
 
 ```bash
-cd foliopdf
+cd JT.pdf
 git pull
 npm install
 ```
