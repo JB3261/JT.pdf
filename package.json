@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "electron:start": "npm run build && electron .",
-    "dist:win": "npm run build && electron-builder --win && node scripts/checksums.mjs"
+    "dist:win": "npm run build && electron-builder --win --publish never && node scripts/checksums.mjs"
   },
   "build": {
     "appId": "com.bayport.jtpdf",
