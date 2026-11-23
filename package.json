@@ -2,18 +2,54 @@
   "name": "jt.pdf",
   "version": "1.0.0",
   "private": true,
-  "description": "Local-first, privacy-respecting PDF studio for viewing, organizing, merging, splitting, compressing, converting, and enhancing PDFs in the browser.",
+  "description": "JT.pdf — Built for Bayport. 100% local, privacy-first PDF studio.",
+  "main": "electron/main.cjs",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:start": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win && node scripts/checksums.mjs"
+  },
+  "build": {
+    "appId": "com.bayport.jtpdf",
+    "productName": "JT.pdf",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        },
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "JT.pdf-${version}-Portable.exe"
+    },
+    "nsis": {
+      "artifactName": "JT.pdf-Setup-${version}.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   },
   "dependencies": {
     "@pdfsmaller/pdf-encrypt-lite": "^1.2.0",
     "jszip": "^3.10.1",
     "lucide-react": "^0.469.0",
-    "mammoth": "^1.13.0",
+    "mammoth": "^1.12.0",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^4.10.38",
     "react": "^18.3.1",
@@ -24,6 +60,8 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8",
     "typescript": "^5.7.2",
     "vite": "^6.0.7"
   }

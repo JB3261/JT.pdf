@@ -1,30 +1,30 @@
-# JT.pdf — 100% Local PDF Studio
+# JT.pdf — Built for Bayport
 
-JT.pdf is a privacy-first, client-side PDF studio built to replace paid PDF tools for teams. Every PDF operation runs completely on your own machine in the browser — documents never leave your device.
+JT.pdf is a 100% local, privacy-first PDF studio built to replace paid PDF software for teams. Every PDF operation runs completely on the user's own workstation — documents never leave the device.
 
-## Quick Install & Run (For Colleagues)
+## Enterprise Deployment (Zero Git / Zero Node.js on User PCs)
 
-**Prerequisite:** [Node.js LTS](https://nodejs.org/) and Git.
+JT.pdf packages as a **standalone Windows Desktop App (`.exe`)**:
+- **Portable `.exe`** (`JT.pdf-1.0.0-Portable.exe`): Single self-contained executable. Copy to a shared drive or Desktop and double-click to run.
+- **Windows Installer `.exe`** (`JT.pdf-Setup-1.0.0.exe`): Standard Windows installer with Start Menu & Desktop shortcuts, supporting silent rollout via Intune / SCCM (`JT.pdf-Setup-1.0.0.exe /S`).
+- **IT Helpdesk Guide:** [docs/JT.pdf-Helpdesk-Guide.pdf](docs/JT.pdf-Helpdesk-Guide.pdf)
 
-```bash
-git clone https://github.com/JB3261/JT.pdf.git
-cd JT.pdf
-npm install
-npm run dev -- --open
-```
+### Security Architecture
+- **100% Offline Local Processing:** Zero cloud uploads, zero telemetry, zero external API calls for document operations.
+- **Zero Open Local Ports:** Bundled assets are served internally via Electron's privileged `jtpdf://` protocol (no local HTTP server port opened).
+- **Hardened Chromium Sandbox:** `contextIsolation: true`, `nodeIntegration: false`, `sandbox: true`, external navigation blocked.
 
-- **Windows one-click launch:** After cloning, double-click **`start.bat`** (it automatically installs dependencies on first run and opens JT.pdf in your browser).
-- **macOS / Linux:** Run `./start.sh`.
-
-## Updating Later
-
-Whenever new features (e.g. Annotate & Sign, OCR, Redaction) are added, colleagues just pull the latest version:
+## Building the Windows `.exe` (IT / Maintainer Only)
 
 ```bash
-cd JT.pdf
-git pull
 npm install
+npm run dist:win
 ```
+
+Outputs are generated in `release/`:
+- `JT.pdf-1.0.0-Portable.exe`
+- `JT.pdf-Setup-1.0.0.exe`
+- `SHA256SUMS.txt` (for InfoSec / AppLocker / Defender whitelisting)
 
 ## Features
 
@@ -41,12 +41,12 @@ npm install
 
 ### Annotate, Sign & Forms (Phase 2)
 - **Annotate & Sign**: Interactive page overlay with Highlight, Freehand Pen, Text Box, Sticky Notes, Boxes, Arrows, Stamps (`APPROVED`, `CONFIDENTIAL`, `DRAFT`, `REVIEWED`, `PAID`, `URGENT`), and drag-to-move/resize before burning cleanly into the PDF.
-- **E-Signatures**: Draw on a touch/mouse pad, type with script presets, or upload a signature image — saved locally in the browser for quick reuse.
+- **E-Signatures**: Draw on a touch/mouse pad, type with script presets, or upload a signature image — saved locally for quick reuse.
 - **Fill Forms**: Automatically detects interactive PDF AcroForm fields (text inputs, checkboxes, dropdowns, radio groups) with optional **Flatten Form** to lock values permanently.
 
 ### Convert & Create (Phase 3)
 - **Create PDF from Markdown / Word / Text**: Write or paste Markdown, or import `.docx` (via `mammoth`), `.md`, or `.txt` files to generate clean vector, selectable-text PDFs with customizable A4/Letter sizing and page numbers.
-- **Export PDF → Word (`.docx`), Markdown (`.md`), or Plain Text (`.txt`)**: Extracts text cleanly per page and generates real OOXML `.docx` files directly in the browser.
+- **Export PDF → Word (`.docx`), Markdown (`.md`), or Plain Text (`.txt`)**: Extracts text cleanly per page and generates real OOXML `.docx` files directly in the app.
 
 ### Edit, Redact, Security & Local OCR (Phase 4)
 - **True Permanent Redaction**: Draw redaction boxes over sensitive text or images; redacted pages are rasterized with solid opaque black bars so hidden text cannot be copied or recovered.
