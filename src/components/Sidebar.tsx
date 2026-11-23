@@ -90,8 +90,8 @@ export function Sidebar({ activeTool, hasDocument, onSelectTool }: SidebarProps)
       </div>
 
       <div className="sidebar-footer">
-        <strong>Zero-Upload Privacy</strong>
-        Every page is processed in-memory on your device. Works offline once loaded.
+        <strong>Built for Bayport</strong>
+        Zero-upload privacy: every page is processed locally on your device.
       </div>
     </aside>
   );

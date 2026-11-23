@@ -52,6 +52,7 @@ export function DropZone({
           <div className="dropzone-icon" aria-hidden="true">
             <FileUp size={28} />
           </div>
+          <div className="bayport-pill">JT.pdf · Built for Bayport</div>
           <h2>Drop your PDF or images here</h2>
           <p>
             Open a single PDF to view, organize, split, or compress — or drop multiple

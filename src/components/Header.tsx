@@ -98,7 +98,10 @@ export function Header({
           <span className="brand-mark" aria-hidden="true">
             <FileText size={16} />
           </span>
-          <span>JT.pdf</span>
+          <span className="brand-stack">
+            <span className="brand-title">JT.pdf</span>
+            <span className="brand-tagline">Built for Bayport</span>
+          </span>
         </button>
 
         {doc && (
